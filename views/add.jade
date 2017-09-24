@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-sm-3
+        h1.my-4 Add question
+      .col-sm-9
+        div.js-listItem
+          .panel.panel-default.js-item
+            .panel-body.form-horizontal.payment-form
+              .form-group
+                label.col-sm-2.control-label Index
+                .col-sm-10
+                  input.form-control(type='text', name='index', disabled='')
+              .form-group
+                label.col-sm-2.control-label Question
+                .col-sm-10
+                  textarea.form-control(name='question', rows='5', placeholder='Type question')
+              .form-group
+                label.col-sm-2.control-label Category
+                .col-sm-10
+                  select.form-control.js-categoryChoice(name='category')
+                    option(value='freeText') Free text
+                    option(value='singleChoice') Single choice
+                    option(value='multiChoice') Multi choice
+              .form-group.hidden.js-singleChoice
+                label.col-sm-2.control-label Single choice
+                .col-sm-10
+                  textarea.form-control(name='singleChoice', rows='5', placeholder='Single choice answer. Each line is a choice.')
+              .form-group.hidden.js-multiChoice
+                label.col-sm-2.control-label Multi choice
+                .col-sm-10
+                  textarea.form-control(name='multiChoice', rows='5', placeholder='Multi choice answer. Each line is a choice.')
+              .form-group
+                .col-sm-12.text-right
+                  button.btn.btn-danger.preview-add-button.js-remove(type='button')
+                    span.glyphicon.glyphicon-minus
+                    |  Remove
+        .form-group
+          .row
+            .col-sm-3.text-right
+              button.btn.btn-primary.preview-add-button.js-add(type='button')
+                span.glyphicon.glyphicon-plus
+                |  Add
